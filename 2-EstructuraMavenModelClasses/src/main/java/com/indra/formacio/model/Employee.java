@@ -1,5 +1,7 @@
 package com.indra.formacio.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -9,12 +11,29 @@ import java.util.Date;
  *
  */
 public class Employee {
+	
+	SimpleDateFormat	sdf = new SimpleDateFormat("dd/mm/yyyy");	
+	
 	protected Long id;
 	protected String name;
 	protected String surname;
-	protected Date bithday;
+	protected Date birthday;
 	protected Float percentCustomers;
 	protected Date percentDate;
+	
+//	public Employee (long id, String name, String surname, String birthday){
+//		this.id = id;
+//		this.name = name;
+//		this.surname = surname;
+//		//Alerta con el SURROUND!!
+//		try {
+//			this.birthday = sdf.parse(birthday);
+//		} catch (ParseException e) {
+//			System.out.println("Error seteando la fecha!!");
+//			e.printStackTrace();
+//			this.birthday = new Date();
+//		}
+//	}
 	
 	public Long getId() {
 		return id;
@@ -34,11 +53,11 @@ public class Employee {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public Date getBithday() {
-		return bithday;
+	public Date getBirthday() {
+		return birthday;
 	}
-	public void setBithday(Date bithday) {
-		this.bithday = bithday;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 	public Float getPercentCustomers() {
 		return percentCustomers;

@@ -35,4 +35,9 @@ public class AppTest
     {
         assertTrue( true );
     }
+    
+    public void testTwo(){
+    	int x = 2;
+    	assertTrue( x == 2);
+    }
 }

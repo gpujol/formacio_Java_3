@@ -9,11 +9,14 @@ import com.indra.formacio.model.Customer;
 
 public class CustomerTest extends TestCase {
 
-	public CustomerTest() {}
+	private SimpleDateFormat sdf;
+	
+	public CustomerTest() {
+		sdf = new SimpleDateFormat("dd/mm/yyyy");	
+	}
 	
 	public void testSettersAndGetters() throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
-		
+				
 		Customer a = new Customer();
 		a.setName("Federico");
 		a.setSurname("Larcia Gorca");
@@ -24,5 +27,13 @@ public class CustomerTest extends TestCase {
 		assertEquals("Larcia Gorca", a.getSurname());
 		assertEquals(sdf.parse("04/04/2016"), a.getPercentDate());
 		assertEquals(2.4f, a.getPercentProduct());
+	}
+	
+	public void testCalculPercentatge(){
+		Customer a = new Customer();
+		a.setPercentProduct(25f);
+		
+		assertEquals(a.getPercentProduct(),100f/4);
+		
 	}
 }
