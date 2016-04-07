@@ -1,5 +1,7 @@
 package com.indra.formacio;
 
+import java.util.ArrayList;
+
 import com.indra.formacio.model.Customer;
 import com.indra.formacio.model.Employee;
 import com.indra.formacio.model.Product;
@@ -11,6 +13,12 @@ import com.indra.formacio.model.Sale;
  */
 public class App 
 {
+	
+	ArrayList<Employee> empleadosEmpresa;
+	ArrayList<Customer> clientesEmpresa;
+	ArrayList<Product> productosEmpresa;
+	ArrayList<Sale> ventasEmpresa;
+	
     public static void main( String[] args )
     {
         Employee emp;
@@ -22,7 +30,7 @@ public class App
         
         Sale [] arraySale = new Sale[3];
         
-        for (int i = 0; i<arraySale.length; i ++){
+        for (int i = 0; i<=arraySale.length; i ++){
 
         	//Creamos el empleado con el constructor por defecto       	
         	emp = new Employee();
@@ -32,9 +40,9 @@ public class App
 //        	empCounter++;
 
 //        	Opción básica
-        	emp.setId(empCounter);
-        	empCounter++;
-//        	emp.setId(empCounter++);
+//        	emp.setId(empCounter);
+//        	empCounter=empCounter+1;
+        	emp.setId(empCounter++);
         	emp.setName("Empleat "+emp.getId());
 
 //        	Creamos el cliente
@@ -55,16 +63,37 @@ public class App
         	arraySale[i] = sal;
         }
 
-        for (int i = 0; i < arraySale.length; i++) {
-			sal = arraySale[i];
-			System.out.println("Nombre del producto: " + sal.getProduct().getName());
-			System.out.println("	Nombre del cliente: " + sal.getCustomer().getName() + " que lo gestiona el empleado " + sal.getCustomer().getEmployee().getName());
-        }
+//        for (int i = 0; i < arraySale.length; i++) {
+//			sal = arraySale[i];
+//			print("Nombre del producto: " + sal.getProduct().getName());
+//			System.out.println("	Nombre del cliente: " + sal.getCustomer().getName() + " que lo gestiona el empleado " + sal.getCustomer().getEmployee().getName());
+//        }
+               
+        for (Sale sale : arraySale) {
+			System.out.println("Nombre del producto: " + sale.getProduct().getName());
+			System.out.println("	Nombre del cliente: " + sale.getCustomer().getName() + " que lo gestiona el empleado " + sale.getCustomer().getEmployee().getName());
+		}
         
-//        for (Sale sale : arraySale) {
-//			System.out.println("Nombre del producto: " + sale.getProduct().getName());
-//			System.out.println("	Nombre del cliente: " + sale.getCustomer().getName() + " que lo gestiona el empleado " + sale.getCustomer().getEmployee().getName());
-//		}
-//        
+    }
+    
+    
+    static void print(String entrada){
+    	System.out.println(entrada);
+    }
+    
+    private void initialize(Integer [][] empCliProd){
+    	empleadosEmpresa = new ArrayList<Employee>();
+    	Employee e;
+    	Customer c;
+    	for (int i = 0; i < empCliProd.length; i++) {
+			e = new Employee();
+			e.setId(new Long(i));
+			e.setName("Empleado "+i);
+			empleadosEmpresa.add(e);
+			for (int j = 0; j < empCliProd[i].length; j++) {
+				
+			}
+		}
+    	
     }
 }

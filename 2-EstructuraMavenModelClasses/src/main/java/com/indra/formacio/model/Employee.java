@@ -21,6 +21,7 @@ public class Employee {
 	protected Float percentCustomers;
 	protected Date percentDate;
 	
+	
 //	public Employee (long id, String name, String surname, String birthday){
 //		this.id = id;
 //		this.name = name;
@@ -58,6 +59,12 @@ public class Employee {
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+	public String getBirthday(Long id){
+		return "El empleado "+id+" nació en "+this.birthday;
+	}
+	public String getBirthday(String nombre) {
+		return "El empleado "+ nombre +" nació en " +this.birthday;
 	}
 	public Float getPercentCustomers() {
 		return percentCustomers;

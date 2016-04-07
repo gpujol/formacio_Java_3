@@ -25,11 +25,15 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
+	public String getWholeName(){
+		return surname +", "+name;
+	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
 	public String getSurname() {
-		return surname;
+		return surname.toUpperCase();
 	}
 	public void setSurname(String surname) {
 		this.surname = surname;
@@ -37,6 +41,11 @@ public class Customer {
 	public Float getPercentProduct() {
 		return percentProduct;
 	}
+	
+	/**
+	 * Método que permite setear el porcentaje de productos que compra un cliente
+	 * @param percentProduct Porcentaje de productos, entre 0 y 100
+	 */
 	public void setPercentProduct(Float percentProduct) {
 		this.percentProduct = percentProduct;
 	}
