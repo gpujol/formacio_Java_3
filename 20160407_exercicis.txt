@@ -1,7 +1,7 @@
 Java - Maven i classes del model bàsiques
 #########################################
 
-06/04/2016
+07/04/2016
 ----------
 
 Ejercicios
