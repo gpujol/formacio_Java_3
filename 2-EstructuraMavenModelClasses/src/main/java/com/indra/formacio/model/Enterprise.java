@@ -1,13 +1,14 @@
 package com.indra.formacio.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Enterprise {
 	
-	private ArrayList<Employee> empleadosEmpresa;
-	private ArrayList<Customer> clientesEmpresa;
-	private ArrayList<Product> productosEmpresa;
-	private ArrayList<Sale> ventasEmpresa;
+	private List<Employee> empleadosEmpresa;
+	private List<Customer> clientesEmpresa;
+	private List<Product> productosEmpresa;
+	private List<Sale> ventasEmpresa;
 	
 	public Enterprise(){
 		this.empleadosEmpresa = new ArrayList<Employee>();
@@ -16,47 +17,43 @@ public class Enterprise {
 		this.ventasEmpresa = new ArrayList<Sale>();		
 	}
 	
-	
-
-	public Enterprise(ArrayList<Employee> empleadosEmpresa, ArrayList<Customer> clientesEmpresa,
-			ArrayList<Product> productosEmpresa, ArrayList<Sale> ventasEmpresa) {
+	public Enterprise(List<Employee> empleadosEmpresa, List<Customer> clientesEmpresa,
+			List<Product> productosEmpresa, List<Sale> ventasEmpresa) {
 		this.empleadosEmpresa = empleadosEmpresa;
 		this.clientesEmpresa = clientesEmpresa;
 		this.productosEmpresa = productosEmpresa;
 		this.ventasEmpresa = ventasEmpresa;
 	}
 
-
-
-	public ArrayList<Employee> getEmpleadosEmpresa() {
+	public List<Employee> getEmpleadosEmpresa() {
 		return empleadosEmpresa;
 	}
 
-	public void setEmpleadosEmpresa(ArrayList<Employee> empleadosEmpresa) {
+	public void setEmpleadosEmpresa(List<Employee> empleadosEmpresa) {
 		this.empleadosEmpresa = empleadosEmpresa;
 	}
 
-	public ArrayList<Customer> getClientesEmpresa() {
+	public List<Customer> getClientesEmpresa() {
 		return clientesEmpresa;
 	}
 
-	public void setClientesEmpresa(ArrayList<Customer> clientesEmpresa) {
+	public void setClientesEmpresa(List<Customer> clientesEmpresa) {
 		this.clientesEmpresa = clientesEmpresa;
 	}
 
-	public ArrayList<Product> getProductosEmpresa() {
+	public List<Product> getProductosEmpresa() {
 		return productosEmpresa;
 	}
 
-	public void setProductosEmpresa(ArrayList<Product> productosEmpresa) {
+	public void setProductosEmpresa(List<Product> productosEmpresa) {
 		this.productosEmpresa = productosEmpresa;
 	}
 
-	public ArrayList<Sale> getVentasEmpresa() {
+	public List<Sale> getVentasEmpresa() {
 		return ventasEmpresa;
 	}
 
-	public void setVentasEmpresa(ArrayList<Sale> ventasEmpresa) {
+	public void setVentasEmpresa(List<Sale> ventasEmpresa) {
 		this.ventasEmpresa = ventasEmpresa;
 	}
 
