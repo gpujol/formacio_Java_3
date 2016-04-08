@@ -15,3 +15,6 @@ Ejercicios
 		ent.initialize(...); //Poned los valores que prefiráis
 		ent.actualizaPorcentajes();
 		ent.muestraDatosEmpresa();
+		
+2. En el proyecto 3-EstructuraMavenModelClassesDB:
+	- Cread las clases EmployeeTest y ProductTest, con sus métodos para probar los inserts de los objectos respectivos
