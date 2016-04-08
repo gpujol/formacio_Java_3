@@ -79,4 +79,9 @@ public class Employee {
 		this.percentDate = percentDate;
 	}
 	
+	@Override
+	public String toString() {
+		return name + " " + surname;
+	}
+	
 }
