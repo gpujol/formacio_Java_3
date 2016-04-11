@@ -1,22 +1,18 @@
 package com.indra.formacio;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import com.indra.formacio.model.Customer;
 import com.indra.formacio.model.Employee;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-    	
+import junit.framework.TestCase;
+
+public class EmployeeTest extends TestCase {
+	
+	public static final int NUMERO_CLIENTS = 2;
+	
+	public void testInserts(){
 		Employee emp = new Employee();
 		emp.setName("Empleat 1");
 		emp.setSurname("Cognom 1");
@@ -30,7 +26,7 @@ public class App
 		Customer c;
 		
 		manager.getTransaction().begin();
-		for (int i = 0; i < 5; i++){
+		for (int i = 0; i < NUMERO_CLIENTS; i++){
 			c = new Customer();
 			c.setName("Nom client "+i);
 			c.setSurname("Cognom client "+i);
@@ -40,14 +36,10 @@ public class App
 		manager.getTransaction().commit();
 		
 		manager.refresh(emp);
+		
+		assertEquals(NUMERO_CLIENTS, emp.getCustomers().size());
+		
+		
+	}
 
-		List<Customer> clients = emp.getCustomers();
-		
-		System.out.println("L'empleat "+emp.getName()+" té els següents clients");
-		
-		for (Customer customer : clients) {
-			System.out.println(customer.toString());
-		}
-    	
-    }
 }

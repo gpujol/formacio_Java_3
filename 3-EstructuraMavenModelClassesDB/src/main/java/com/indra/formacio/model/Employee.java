@@ -1,11 +1,13 @@
 package com.indra.formacio.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * Objects of this class represent an Employee
@@ -28,6 +30,9 @@ public class Employee {
 	protected Float percentCustomers;
 	@Column
 	protected Date percentDate;
+	
+	@OneToMany(mappedBy="employee")
+	protected List<Customer> customers;
 	
 	public Long getId() {
 		return id;
@@ -64,6 +69,12 @@ public class Employee {
 	}
 	public void setPercentDate(Date percentDate) {
 		this.percentDate = percentDate;
+	}
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
 	}
 	
 }
