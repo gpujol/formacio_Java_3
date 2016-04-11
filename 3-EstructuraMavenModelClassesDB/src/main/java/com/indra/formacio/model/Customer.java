@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -27,7 +28,11 @@ public class Customer {
 	protected Float percentProduct;
 	@Column
 	protected Date percentDate;
-	@OneToOne
+
+	
+	//Este atributo que sigue está relacionado con el OneToMany de Employee. Si no definimos esto aquí
+	//en la otra clase va a dar error en intentar mapear el OneToMany
+	@ManyToOne
 	protected Employee employee;
 	
 	public Long getId() {
@@ -65,5 +70,10 @@ public class Customer {
 	}
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+	
+	@Override
+	public String toString() {
+		return name + " "+surname;
 	}
 }
