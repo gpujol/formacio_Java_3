@@ -23,13 +23,13 @@ public class CustomerRepoTest extends TestCase {
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
 	
 	@Autowired
-	CustomerRepository crepo;
+	CustomerRepository cRepo;
 	@Autowired
-	EmployeeRepository erepo;
+	EmployeeRepository eRepo;
 	
 	@Test
 	public void testCrud() throws ParseException {
-		Employee e = erepo.findOne(1L);
+		Employee e = eRepo.findOne(1L);
 		
 		Customer a = new Customer();
 		a.setName("Federico");
@@ -38,10 +38,10 @@ public class CustomerRepoTest extends TestCase {
 		a.setPercentProduct(2.4d);		
 		a.setEmployee(e);
 		
-		crepo.save(a);
+		cRepo.save(a);
 		assertNotNull(a.getId());
 		
-		List<Customer> res = crepo.findByName("Federico");
+		List<Customer> res = cRepo.findByName("Federico");
 		assertFalse(res.isEmpty());
 		
 		Customer b = res.get(0);
@@ -60,7 +60,7 @@ public class CustomerRepoTest extends TestCase {
 	
 	@Test
 	public void testFileInsertedData() {
-		List<Customer> res = crepo.findByName("Client 1.1");
+		List<Customer> res = cRepo.findByName("Client 1.1");
 		assertFalse(res.isEmpty());
 	}
 }

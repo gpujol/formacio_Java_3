@@ -1,7 +1,7 @@
 --Dades b�siques
 
 --Inserim dos empleats
-INSERT INTO EMPLOYEE (NAME, DATE_OF_BIRTH) VALUES ('Treballador 1','01.01.1980');
+INSERT INTO EMPLOYEE (NAME, SURNAME, DATE_OF_BIRTH) VALUES ('Treballador 1','Cognom treballador 1','01.01.1980');
 INSERT INTO EMPLOYEE (NAME, DATE_OF_BIRTH) VALUES ('Treballador 2','01.07.1990');
 INSERT INTO EMPLOYEE (NAME, DATE_OF_BIRTH) VALUES ('Treballador 3','01.10.1970');
 

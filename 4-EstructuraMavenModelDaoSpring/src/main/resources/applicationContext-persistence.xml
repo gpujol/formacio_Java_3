@@ -10,8 +10,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
 
     <!-- Creates the datasource bean. -->
-     <jdbc:embedded-database id="dataSource"
-            type="DERBY">
+     <jdbc:embedded-database id="dataSource" type="DERBY">
             <jdbc:script location="classpath:/database/create-schema.sql" />
             <jdbc:script location="classpath:/database/insert-data.sql" />            
      </jdbc:embedded-database>

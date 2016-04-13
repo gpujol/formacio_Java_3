@@ -26,7 +26,7 @@ public class EmployeeRepoTest extends TestCase {
 	
 	@Test
 	public void testFileInsertedData() throws ParseException {
-		List<Employee> res = erepo.findByName("Treballador 1");
+		List<Employee> res = erepo.findBySurname("Cognom treballador 1");
 		assertFalse(res.isEmpty());
 		
 		Employee e = res.get(0);
