@@ -14,17 +14,6 @@ http://www.springframework.org/schema/jdbc http://www.springframework.org/schema
             <jdbc:script location="classpath:/database/create-schema.sql" />
             <jdbc:script location="classpath:/database/insert-data.sql" />            
      </jdbc:embedded-database>
-	
-    <!--
-        Creates the transaction manager bean that integrates the used JPA provider with the
-        Spring transaction mechanism.
-    -->
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
-
-    <!-- Enables annotation-driven transaction management. -->
-    <tx:annotation-driven/>
 
     <!--
         Specifies the default settings that are compatible with Hibernate.
@@ -61,7 +50,7 @@ http://www.springframework.org/schema/jdbc http://www.springframework.org/schema
                     If the value of this property is true, Hibernate writes all SQL
                     statements to the console.
                 -->
-                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.show_sql">false</prop>
 
                 <!--
                     If the value of this property is true, Hibernate will use prettyprint
@@ -71,6 +60,20 @@ http://www.springframework.org/schema/jdbc http://www.springframework.org/schema
             </props>
         </property>
     </bean>
+	
+    <!--
+        Creates the transaction manager bean that integrates the used JPA provider with the
+        Spring transaction mechanism.
+    -->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <!-- Enables annotation-driven transaction management. -->
+    <tx:annotation-driven/>
+
+
+
 
   
     <jpa:repositories base-package="com.indra.formacio.dao"/>

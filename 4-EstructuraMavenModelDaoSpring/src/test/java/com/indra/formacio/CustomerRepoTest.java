@@ -1,21 +1,21 @@
 package com.indra.formacio;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-
-import junit.framework.TestCase;
-
 import com.indra.formacio.dao.CustomerRepository;
 import com.indra.formacio.dao.EmployeeRepository;
 import com.indra.formacio.model.Customer;
 import com.indra.formacio.model.Employee;
+
+import junit.framework.TestCase;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/applicationContext.xml" })
@@ -56,6 +56,13 @@ public class CustomerRepoTest extends TestCase {
 		assertEquals(a.getEmployee(), b.getEmployee());
 		assertEquals(a.hashCode(), b.hashCode());
 		assertEquals(a,b);
+		
+		res = cRepo.findBySurname("Larcia");
+		assertFalse(res.isEmpty());
+		
+		b = res.get(0);
+		
+		System.out.println("prova!!!!!! "+b.getSurname());
 	}
 	
 	@Test
