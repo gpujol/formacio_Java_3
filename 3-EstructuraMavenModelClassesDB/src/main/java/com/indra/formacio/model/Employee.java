@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -31,7 +32,7 @@ public class Employee {
 	@Column
 	protected Date percentDate;
 	
-	@OneToMany(mappedBy="employee")
+	@OneToMany(mappedBy="employee",fetch=FetchType.LAZY)
 	protected List<Customer> customers;
 	
 	public Long getId() {
