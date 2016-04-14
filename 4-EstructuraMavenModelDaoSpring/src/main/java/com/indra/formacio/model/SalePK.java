@@ -12,6 +12,11 @@ public class SalePK implements Serializable {
 	protected Long customer;
 	
 	@Column(name="PRODUCT_ID")
-	protected Long product;	
+	protected Long product;
+	
+	public SalePK(Long customerId, Long productId){
+		this.customer = customerId;
+		this.product = productId;
+	}
 	
 }
