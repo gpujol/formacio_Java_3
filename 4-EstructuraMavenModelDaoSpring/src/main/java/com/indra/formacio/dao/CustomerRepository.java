@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.indra.formacio.model.Customer;
 
-public interface CustomerRepository  extends CrudRepository<Customer, Long> {
+public interface CustomerRepository  extends CrudRepository<Customer, Long> , CustomerRepoMethods{
 	List<Customer> findByName(String name);
+	
 }

@@ -26,11 +26,11 @@ public class EmployeeRepoTest extends TestCase {
 	
 	@Test
 	public void testFileInsertedData() throws ParseException {
-		List<Employee> res = erepo.findByName("Treballador 1");
+		List<Employee> res = erepo.findByBirthday(sdf.parse("01/10/1970"));
 		assertFalse(res.isEmpty());
 		
 		Employee e = res.get(0);
 		
-		assertEquals(sdf.parse("01/01/1980"), e.getBirthday());
+		assertEquals("Treballador 3", e.getName());
 	}
 }

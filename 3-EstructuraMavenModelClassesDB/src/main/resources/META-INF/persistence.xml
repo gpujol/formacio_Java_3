@@ -5,15 +5,13 @@
 		<class>com.indra.formacio.model.Employee</class>
         <class>com.indra.formacio.model.Customer</class>
         <class>com.indra.formacio.model.Product</class>
+        <class>com.indra.formacio.model.Sale</class>
 		<properties>
-			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
-			<property name="javax.persistence.jdbc.url"    value="jdbc:derby:/simpleDb;create=true" />
-			<property name="javax.persistence.jdbc.user" value="" />
-			<property name="javax.persistence.jdbc.password" value="" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.DerbyTenSevenDialect"/>
+			<property name="javax.persistence.jdbc.driver" value="org.hibernate.dialect.Oracle9iDialect" />
+			<property name="javax.persistence.jdbc.url"    value="jdbc:oracle:/exempleDB" />
+			<property name="javax.persistence.jdbc.user" value="EXEMPLE_SCHEMA" />
+			<property name="javax.persistence.jdbc.password" value="EXEMPLE_SCHEMA" />
 			<property name="show_sql" value="true"/>
-			<property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
-			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
 		</properties>
 	</persistence-unit>
 </persistence>
