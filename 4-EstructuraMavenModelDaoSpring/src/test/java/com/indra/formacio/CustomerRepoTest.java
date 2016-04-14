@@ -31,38 +31,38 @@ public class CustomerRepoTest extends TestCase {
 	public void testCrud() throws ParseException {
 		Employee e = eRepo.findOne(1L);
 		
-		Customer a = new Customer();
-		a.setName("Federico");
-		a.setSurname("Larcia Gorca");
-		a.setPercentDate(sdf.parse("04/04/2016"));
-		a.setPercentProduct(2.4d);		
-		a.setEmployee(e);
+		Customer custA = new Customer();
+		custA.setName("Federico");
+		custA.setSurname("Larcia Gorca");
+		custA.setPercentDate(sdf.parse("04/04/2016"));
+		custA.setPercentProduct(2.4d);		
+		custA.setEmployee(e);
 		
-		cRepo.save(a);
-		assertNotNull(a.getId());
+		cRepo.save(custA);
+		assertNotNull(custA.getId());
 		
 		List<Customer> res = cRepo.findByName("Federico");
 		assertFalse(res.isEmpty());
 		
-		Customer b = res.get(0);
+		Customer custB = res.get(0);
 		
-		assertEquals(a.getId(), b.getId());
-		assertEquals(a.getName(), b.getName());
-		assertEquals(a.getSurname(), b.getSurname());
-		assertEquals(a.getPercentDate(), b.getPercentDate());
-		assertEquals(a.getPercentProduct(), b.getPercentProduct());
-		assertEquals(a.getEmployee().getId(), b.getEmployee().getId());
-		System.out.println(a.getEmployee().equals( b.getEmployee()));
-		assertEquals(a.getEmployee(), b.getEmployee());
-		assertEquals(a.hashCode(), b.hashCode());
-		assertEquals(a,b);
+		assertEquals(custA.getId(), custB.getId());
+		assertEquals(custA.getName(), custB.getName());
+		assertEquals(custA.getSurname(), custB.getSurname());
+		assertEquals(custA.getPercentDate(), custB.getPercentDate());
+		assertEquals(custA.getPercentProduct(), custB.getPercentProduct());
+		assertEquals(custA.getEmployee().getId(), custB.getEmployee().getId());
+		System.out.println(custA.getEmployee().equals( custB.getEmployee()));
+		assertEquals(custA.getEmployee(), custB.getEmployee());
+		assertEquals(custA.hashCode(), custB.hashCode());
+		assertEquals(custA,custB);
 		
 		res = cRepo.findBySurname("Larcia");
 		assertFalse(res.isEmpty());
 		
-		b = res.get(0);
+		custB = res.get(0);
 		
-		System.out.println("prova!!!!!! "+b.getSurname());
+		System.out.println("prova!!!!!! "+custB.getSurname());
 	}
 	
 	@Test
