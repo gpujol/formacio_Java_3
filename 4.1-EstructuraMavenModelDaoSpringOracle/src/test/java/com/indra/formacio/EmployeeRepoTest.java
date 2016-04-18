@@ -16,7 +16,7 @@ import com.indra.formacio.dao.EmployeeRepository;
 import com.indra.formacio.model.Employee;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/applicationContextTest.xml" })
+@ContextConfiguration(locations = { "/applicationContext.xml" })
 public class EmployeeRepoTest extends TestCase {
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
@@ -26,11 +26,11 @@ public class EmployeeRepoTest extends TestCase {
 	
 	@Test
 	public void testFileInsertedData() throws ParseException {
-		List<Employee> res = erepo.findByName("Treballador 1");
+		List<Employee> res = erepo.findByName("Empleado_24");
 		assertFalse(res.isEmpty());
 		
 		Employee e = res.get(0);
 		
-		assertEquals(sdf.parse("01/01/1980"), e.getBirthday());
+		assertEquals(sdf.parse("05/04/2016"), sdf.parse(sdf.format(e.getBirthday())));
 	}
 }

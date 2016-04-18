@@ -14,9 +14,9 @@ http://www.springframework.org/schema/jdbc http://www.springframework.org/schema
             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
             <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
             <property name="url"
-                value="jdbc:oracle:thin:@localhost:1521:SID" />
-            <property name="username" value="scott" />
-            <property name="password" value="tiger" />
+                value="jdbc:oracle:thin:@localhost:1521:XE" />
+            <property name="username" value="EXEMPLE_SCHEMA" />
+            <property name="password" value="EXEMPLE_SCHEMA" />
         </bean>
         
     <!--
