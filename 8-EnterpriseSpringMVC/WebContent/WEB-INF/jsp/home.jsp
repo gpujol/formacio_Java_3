@@ -12,10 +12,11 @@
 <body>
 	<div style="text-align:center">
 		<h2>
-			Enterprise Spring MVC
+			Enterprise Spring MVC - Managing app
 		</h2>
 		<ul>
-			<li><a href="home.do">Acceso aplicación</a></li>
+			<li><a href="new-employee-creation.do">Alta de empleado</a></li>
+			<li><a href="employees-view.do">Consulta de empleados</a></li>
 		</ul>
 	</div>
 </body>

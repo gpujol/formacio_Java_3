@@ -7,16 +7,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Home</title>
+<title>View employee</title>
 </head>
 <body>
-	<div style="text-align:center">
-		<h2>
-			Enterprise Spring MVC
-		</h2>
-		<ul>
-			<li><a href="home.do">Acceso aplicación</a></li>
-		</ul>
-	</div>
+	<h2>New employee added successfully!</h2>
+      <table>
+          <tr>
+              <td>First Name:</td>
+              <td>${employee.name}</td>
+          </tr>
+          <tr>
+              <td>Last Name:</td>
+              <td>${employee.surname}</td>
+          </tr>
+      </table>
+      <a href="home.do">Back</a>
 </body>
 </html>
