@@ -1,17 +1,24 @@
 package com.indra.formacio.controller;
  
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.indra.formacio.dao.EmployeeRepository;
 import com.indra.formacio.model.Employee;
+import com.indra.formacio.webmodel.EmployeeSearchForm;
  
 @Controller
 public class EmployeeController {
@@ -23,47 +30,79 @@ public class EmployeeController {
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 	
-	@RequestMapping("/home")
-	public String home(){
-		return "home";
-	}
-	
 	@RequestMapping("/new-employee-creation")
 	public String newEmployee(Map<String, Object> model){
 		Employee emp = new Employee();
 		model.put("employee",emp);
-		return "new-employee";
+		return "employee/new-employee";
 	}
 	
 	@RequestMapping("/add-employee")
-    public String processRegistration(@ModelAttribute("employee") Employee emp,
+    public String addEmployee(@ModelAttribute("employee") Employee emp,
             Map<String, Object> model) {
         
-		if (emp.getName()!=null){
-			Employee newEmp = new Employee();
-			newEmp.setName(emp.getName());
-			newEmp.setSurname(emp.getSurname());
-			newEmp.setBirthday(emp.getBirthday());
+		if (emp.getName()!=null && emp.getSurname() != null && emp.getBirthday() != null){
 			eRepo.save(emp);
 			
-	        // for testing purpose:
-	        System.out.println("name: " + emp.getName());
-	        System.out.println("surname: " + emp.getSurname());
-	         
-	        model.put("employee",newEmp);
+	        LOG.info("Empleado añadido, nombre: "+emp.getName());
+	        
+	        model.put("employee",emp);
 	        
 	        return "view-employee";
 	    } else {
-	    	model.put("message", "El nom d'empleat és necessari");
-	    	return "new-employee";
+	    	model.put("message", "Todos los campos son obligatorios");
+	    	return "employee/new-employee";
 	    }
 	}
-
+	
 	@RequestMapping("/employees-view")
 	public String employeesView(Map<String, Object> model){
 		List<Employee> empList = (List<Employee>)eRepo.findAll();
 		model.put("employeeList",empList);
-		return "employees-view";
+		return "employee/employees-view";
+	}
+	
+	@RequestMapping("/search-employee-view")
+	public String searchEmployeeView(Map<String, Object> model){
+		EmployeeSearchForm emp = new EmployeeSearchForm();
+		model.put("employeeSearchForm",emp);
+		return "employee/search-employee";
+	}
+	
+	@RequestMapping("/search-employee")
+	public String searchEmployee(@ModelAttribute("employeeSearchForm") EmployeeSearchForm emp,
+			Map<String, Object> model){
+		
+		Date dataIni, dataFi;
+		
+		List<Employee> empList;
+		
+		try {
+			if (emp.getBirthdayIni() != null && !emp.getBirthdayIni().equals("")) {
+				dataIni = sdf.parse(emp.getBirthdayIni());
+			} else {
+				dataIni = null;
+			}
+			if (emp.getBirthdayEnd() != null && !emp.getBirthdayEnd().equals("")) {
+				dataFi = sdf.parse(emp.getBirthdayEnd());
+			} else {
+				dataFi = null;
+			}
+		
+			empList = eRepo.findByNameOrSurnameOrBirthdayBetween(
+					emp.getName(), 
+					emp.getSurname(), 
+					dataIni,
+					dataFi
+					);
+		
+		} catch (ParseException e){
+			LOG.error("Error en parsejar les dates",e);
+			empList = new ArrayList<Employee>();
+		}
+			
+		model.put("employeeList",empList);
+		return "employee/search-employee";
 	}
 	
 }
