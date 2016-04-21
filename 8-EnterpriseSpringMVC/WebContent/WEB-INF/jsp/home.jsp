@@ -17,7 +17,6 @@
 		</h2>
 		<ul>
 			<li><a href="new-employee-creation.do"><fmt:message key="employee.create" /></a></li>
-			<li><a href="new-valid-employee.do"><fmt:message key="employee.create.validation" /></a></li>
 			<li><a href="search-employee-view.do"><fmt:message key="employee.search"/></a></li>
 			<li><a href="employees-view.do"><fmt:message key="employee.view.all" /></a></li>
 			<li><a href="new-customer-creation.do"><fmt:message key="customer.create" /></a></li>
