@@ -1,9 +1,19 @@
 package com.indra.formacio.webmodel;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+
 public class CustomerBean {
 	
+	@Size(min=2,max=50,message="El cliente tiene que tener nombre, y su longitud tiene que estar entre 2 y 50")
 	private String name;
+	
+	@Size(min=2)
 	private String surname;
+
+	@NotEmpty
 	private String employeeId;
 	
 	public String getName() {
